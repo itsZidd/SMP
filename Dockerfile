@@ -1,6 +1,7 @@
 FROM itzg/minecraft-bedrock-server:latest
 
 ENV EULA=TRUE
+ENV VERSION=PREVIOUS
 ENV SERVER_NAME="TOmodachi Server"
 ENV DIFFICULTY=normal
 ENV WHITE_LIST=false
