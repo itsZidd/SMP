@@ -1,0 +1,10 @@
+[build]
+builder = "DOCKERFILE"
+
+[deploy]
+startCommand = ""
+
+[service]
+ports = [
+  { port = 19132, protocol = "udp" }
+]
