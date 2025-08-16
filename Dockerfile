@@ -1,17 +1,15 @@
 FROM itzg/minecraft-bedrock-server:latest
 
-# Set environment variables
 ENV EULA=TRUE
-ENV DEBUG=true
-
 ENV SERVER_NAME="TOmodachi Server"
-ENV GAMEMODE=survival
 ENV DIFFICULTY=normal
-ENV MAX_PLAYERS=10
-ENV ALLOW_CHEATS=false
-ENV ONLINE_MODE=true
 ENV WHITE_LIST=false
-ENV MAX_MEMORY=1G
+ENV GAMEMODE=survival
+ENV MAX_PLAYERS=10
+
+ENV DEBUG=false
+ENV CONTENT_LOG_FILE_ENABLED=false
+ENV CONTENT_LOG_CONSOLE_OUTPUT_ENABLED=false
 
 # Expose the Bedrock port
 EXPOSE 19132/udp
