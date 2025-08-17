@@ -6,3 +6,7 @@ ENV EULA=TRUE \
     GAMEMODE=survival \
     DIFFICULTY=normal \
     ONLINE_MODE=true
+
+# Copy and set up start script
+COPY start.sh /app/start.sh
+RUN chmod +x /app/start.sh
