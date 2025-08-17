@@ -9,6 +9,10 @@ RUN apt-get update && \
     libcurl4 \
     libssl3 \
     jq \
+    python3 \
+    python3-pip \
+    dos2unix \
+    && pip3 install yq \
     && rm -rf /var/lib/apt/lists/*
 
 # Set up environment variables
@@ -30,7 +34,12 @@ RUN curl -sL https://raw.githubusercontent.com/itzg/docker-minecraft-bedrock-ser
     -o /opt/auto-versions && \
     curl -sL https://raw.githubusercontent.com/itzg/docker-minecraft-bedrock-server/master/bedrock-entry.sh \
     -o /opt/bedrock-entry.sh && \
-    chmod +x /opt/bedrock-entry.sh /opt/start-configuration /opt/auto-versions
+    curl -sL https://raw.githubusercontent.com/itzg/docker-minecraft-bedrock-server/master/bin/set-property \
+    -o /usr/local/bin/set-property && \
+    curl -sL https://raw.githubusercontent.com/itzg/docker-minecraft-bedrock-server/master/bin/mc-monitor \
+    -o /usr/local/bin/mc-monitor && \
+    chmod +x /opt/bedrock-entry.sh /opt/start-configuration /opt/auto-versions /usr/local/bin/set-property /usr/local/bin/mc-monitor && \
+    mkdir -p /usr/local/bin
 
 # Copy and set up start script
 COPY start.sh /app/start.sh
