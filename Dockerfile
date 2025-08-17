@@ -1,9 +1,8 @@
-FROM itzg/minecraft-bedrock-server
+FROM itzg/minecraft-bedrock-server:latest
 
-ENV EULA="TRUE"
-
-EXPOSE 19132/udp
-
-VOLUME ["/data"]
-
-CMD ["/start"]
+# Default environment variables
+ENV EULA=TRUE \
+    SERVER_NAME="Railway-Bedrock" \
+    GAMEMODE=survival \
+    DIFFICULTY=normal \
+    ONLINE_MODE=true
