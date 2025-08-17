@@ -36,8 +36,7 @@ RUN curl -sL https://raw.githubusercontent.com/itzg/docker-minecraft-bedrock-ser
 COPY start.sh /app/start.sh
 RUN chmod +x /app/start.sh
 
-# Set up volume and working directory
-VOLUME ["/data"]
+# Set working directory
 WORKDIR /data
 
 # Expose the server port
