@@ -1,0 +1,23 @@
+#!/bin/bash
+
+if [[ $# != 2 ]]; then
+  echo "Usage: set-property <name> <value>"
+  exit 1
+fi
+
+name="$1"
+value="$2"
+file="server.properties"
+
+if [ ! -f "$file" ]; then
+  echo "server.properties file not found"
+  exit 1
+fi
+
+if grep -q "^${name}=" "$file"; then
+  # Property exists, replace it
+  sed -i "s/^${name}=.*/${name}=${value}/" "$file"
+else
+  # Property doesn't exist, append it
+  echo "${name}=${value}" >> "$file"
+fi
